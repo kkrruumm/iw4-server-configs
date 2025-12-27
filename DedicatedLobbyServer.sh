@@ -31,6 +31,8 @@ ServerFilename=serverlan.cfg
 # Remove this if automatic updates on start should be disabled
 if [ -f iw4x-launcher ]; then
     ./iw4x-launcher --update
+elif [ -f iw4x-updoot.sh ]; then
+    ./iw4x-updoot.sh
 fi
 
 wine iw4x.exe -dedicated -stdout +set fs_game "$ModFolderName" +set sv_lanonly "$LANMode" +set net_port "$GamePort" +exec "$ServerFilename" +set logfile "$LogFile" +set party_enable "1" +set playlistFilename "$PlaylistFilename" +playlist "$PlaylistGameMode"
