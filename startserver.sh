@@ -1,10 +1,8 @@
 #!/bin/sh
 
-# IW4x Lobby Server Configuration start-up file
+# IW4x Dedicated Server Configuration start-up file
 # For support visit us on discord https://discord.gg/2ETE8engZM
 
-# Choose your gamemode of 0-22 of your choice above 
-PlaylistGameMode=1
 
 # Your Game Server Port. Make sure you Port Forward both UDP & TCP
 GamePort=28960
@@ -18,21 +16,18 @@ LANMode=0
 LogFile=1
 
 # Load a mod on your server
-ModFolderName=
-
-# The name of your edited Playlist from the "userraw" folder goes here (optional)
-PlaylistFilename=partyserver.cfg
+#ModFolderName=
 
 # Your edited server.cfg in the "userraw" folder goes here...
 # This is where you edit your hostname, rcon, inactivity, etc
 # (Optional)
-ServerFilename=serverlan.cfg
+ServerFilename=server.cfg
 
 # Remove this if automatic updates on start should be disabled
 if [ -f iw4x-launcher ]; then
     ./iw4x-launcher --update
-elif [ -f iw4x-updoot.sh ]; then
+elif [ -f iw4x-updoor.sh ]; then
     ./iw4x-updoot.sh
 fi
 
-wine iw4x.exe -dedicated -stdout +set fs_game "$ModFolderName" +set sv_lanonly "$LANMode" +set net_port "$GamePort" +exec "$ServerFilename" +set logfile "$LogFile" +set party_enable "1" +set playlistFilename "$PlaylistFilename" +playlist "$PlaylistGameMode"
+wine iw4x.exe -dedicated -stdout +set fs_game "$ModFolderName" +set sv_lanonly "$LANMode" +set net_port "$GamePort" +exec "$ServerFilename" +set logfile "$LogFile" +set party_enable "0" +map_rotate
