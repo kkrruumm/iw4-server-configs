@@ -26,7 +26,7 @@ ServerFilename=server.cfg
 # Remove this if automatic updates on start should be disabled
 if [ -f iw4x-launcher ]; then
     ./iw4x-launcher --update
-elif [ -f iw4x-updoor.sh ]; then
+elif [ -f iw4x-updoot.sh ]; then
     ./iw4x-updoot.sh
 fi
 
